@@ -1,0 +1,57 @@
+$body_color: #4F4C4C;
+$app_color: #4C4F4D;
+$app_border: 10px solid transparent;
+$font_color: #C7E7D1;
+$button_bckg: #708280;
+body{
+  background-color: $body_color;
+  .App{
+    user-select: none;
+    background-color: $app_color;
+    text-align: center;
+    margin: 5% auto;
+    width: 660px;
+    height: 587px;
+    border: $app_border;
+    border-radius: 20px 20px 10px 10px;
+    box-shadow: -20px -20px 500px #77A8A1;
+    h1{
+      color: $font_color;
+      text-shadow: 2px 2px 3px #9B6767;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      font-size: 3em;
+    }
+    h4{
+      color: $font_color;
+    }
+    .btn-toolbar{
+      .btn-group{
+        margin: 0 0 50px 210px;
+        button{
+          background-color: $button_bckg;
+          color: white;
+          font-weight: 700;
+          outline: none;
+          &:hover{
+            background-color: #444F4E;
+            color: #B2CECB;
+          }
+        }
+      }
+    }
+    .grid_board{
+      position: relative;
+      top: 5px;
+      border: 2px solid transparent;
+      height: 352.5px;
+      .cell{
+        height: 12px;
+        width: 12px;
+        display: block;
+        float: left;
+        border: 0.1px solid black;
+        box-shadow: -2px -2px 2px #858282;
+      }
+    }
+  } 
+}
