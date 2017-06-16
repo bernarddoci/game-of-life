@@ -11,7 +11,6 @@ body{
     text-align: center;
     margin: 5% auto;
     width: 660px;
-    height: 587px;
     border: $app_border;
     border-radius: 20px 20px 10px 10px;
     box-shadow: -20px -20px 500px #77A8A1;
@@ -26,7 +25,7 @@ body{
     }
     .btn-toolbar{
       .btn-group{
-        margin: 0 0 50px 210px;
+        margin: 0 0 10px 115px;
         button{
           background-color: $button_bckg;
           color: white;
@@ -40,10 +39,14 @@ body{
       }
     }
     .grid_board{
+      // duhet me kethy height siq ka qen me heret
       position: relative;
       top: 5px;
       border: 2px solid transparent;
-      height: 352.5px;
+      margin: auto;
+      // height: 352.5px;
+      height: 20px;
+      width: 50px;
       .cell{
         height: 12px;
         width: 12px;

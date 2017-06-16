@@ -4,10 +4,10 @@ import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import allReducers from "./reducers/index";
-
-const store = createStore(allReducers, applyMiddleware(logger));
+// , applyMiddleware(logger)
+const store = createStore(allReducers);
 
 ReactDOM.render(
 	<Provider store={store}>

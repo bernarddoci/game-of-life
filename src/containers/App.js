@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Button, ButtonToolbar, ButtonGroup} from 'react-bootstrap'
 import Cell from "../components/cell";
+import Buttons from '../components/buttons';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {cellClicked} from '../actions/index';
@@ -8,21 +8,19 @@ import {cellClicked} from '../actions/index';
 import '../App.css';
 
 class App extends Component {
+  
+  
   render() {
+    // console.log(this.props.grid);
     return (
       <div className="App">
       	<h1>Game of Life</h1>
-		    <ButtonToolbar>
-			 	 <ButtonGroup bsSize="large">
-			 		  <Button bsStyle="default">Run</Button>
-			 		  <Button bsStyle="default">Pause</Button>
-			 		  <Button bsStyle="default">Clear</Button>
-			 	 </ButtonGroup>
-        </ButtonToolbar>
-        <h4>Generation: 100</h4>
+		    <Buttons />
+        <h4>Generation: 53x29</h4>
         <div className="grid_board">
           {
-            this.props.cells.cells.map((cell, index) =>{
+            this.props.grid.cells.map((cell, index) =>{
+              console.log(cell, index);
               return <Cell 
                 alive={cell} 
                 key={index} 
@@ -37,7 +35,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {cells: state.cells};
+  return {grid: state.cells};
 }
 
 const mapDispatchToProps = (dispatch) => {
