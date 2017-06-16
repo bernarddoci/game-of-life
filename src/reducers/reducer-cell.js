@@ -52,10 +52,12 @@ const cellClicked = (state = {
 	}, action) => {
 		switch(action.type){
 			case 'CELL_CLICKED':
-				let id = action.payload.id;
-				let alive = action.payload.alive ? 0 : 1;
-				let newState = {...state};
-				newState.cells[id] = alive;
+				let id, row, alive, newState;
+				id = action.payload.id;
+				row = action.payload.row; 
+				alive = action.payload.alive ? 0 : 1;
+				newState = {...state};
+				newState.cells[row][id] = alive;
 				return newState;
 	 		default:
 		}

@@ -19,13 +19,16 @@ class App extends Component {
         <h4>Generation: 53x29</h4>
         <div className="grid_board">
           {
-            this.props.grid.cells.map((cell, index) =>{
-              console.log(cell, index);
-              return <Cell 
-                alive={cell} 
-                key={index} 
-                id={index}
-                cellClicked={this.props.cellClicked}/>
+            this.props.grid.cells.map((row, i) =>{
+              // console.log(row, index);
+              return row.map((cell, index) => {
+                return <Cell 
+                  alive={cell} 
+                  key={index} 
+                  id={index}
+                  row={i}
+                  cellClicked={this.props.cellClicked}/>
+              });
             })
           }
         </div>)
