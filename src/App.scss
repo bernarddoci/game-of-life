@@ -1,5 +1,5 @@
 $body_color: #CFCECD;
-$app_color: #325253;
+$app_color: rgba(0, 0, 0, 0.5);
 $app_border: 15px solid #74C0C2;
 $font_color: #D3D3D3;
 $button_bckg: #2C494A;
@@ -7,7 +7,7 @@ $btn_hover_color: #DFE1E1;
 $cell_size: 18px;
 
 body{
-  background: linear-gradient(to left, #CFCECD,#677C82);
+  background: linear-gradient(to right, #CFCECD, #677C82, #3A906B, #A5C784);
   .App{
     user-select: none;
     background-color: $app_color;
@@ -30,7 +30,7 @@ body{
     }
     .btn-toolbar{
       .btn-group{
-        margin: 0 0 5px 115px;
+        margin: 0 0 5px 150px;
         button{
           background-color: $button_bckg;
           color: $font_color;

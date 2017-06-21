@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import Cell from "../components/cell";
-import Buttons from './buttons';
+import Buttons from '../components/buttons';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {cellClicked} from '../actions/index';
+import {cellClicked, changeSize, startGame} from '../actions/index';
 
 import '../App.css';
 
 class App extends Component {
   
   render() {
-    // console.log(this.props.grid);
+    console.log(this.props.grid.running);
     return (
       <div className="App">
       	<h1>Game of Life</h1>
-		    <Buttons />
+		    <Buttons 
+          changeSize={this.props.changeSize}
+          startGame={this.props.startGame}
+          running={this.props.grid.running}
+          />
         <h5>Generation: 53x29</h5>
         <table className="grid_board">
           <tbody>
@@ -48,11 +52,12 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({cellClicked: cellClicked}, dispatch);
+  return bindActionCreators({
+    cellClicked: cellClicked,
+    changeSize: changeSize,
+    startGame: startGame
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
-
-// Duhet me bo actioni per ndryshim te madhsis qe ta mer vetem nje argument
-// dhe ne baze te tij ta ndryshoj formen.

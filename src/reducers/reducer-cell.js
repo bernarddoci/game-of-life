@@ -13,7 +13,7 @@ const createGrid = (size) => {
 	return arr;
 }
 const cellClicked = (state = {
-	runing: false,
+	running: false,
 	cells: createGrid(3)
 	}, action) => {
 		let id, row, alive, newState, cells;
@@ -27,6 +27,11 @@ const cellClicked = (state = {
 				cells = createGrid(action.payload);
 				newState = {...state};
 				newState.cells = cells;
+				return newState;
+			case 'START_GAME':
+				alive = action.payload;
+				newState = {...state};
+				newState.running = alive;
 				return newState;
 	 		default:
 		}
