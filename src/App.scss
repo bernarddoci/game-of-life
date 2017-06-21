@@ -1,59 +1,63 @@
-$body_color: #4F4C4C;
-$app_color: #4C4F4D;
-$app_border: 10px solid transparent;
-$font_color: #C7E7D1;
-$button_bckg: #708280;
+$body_color: #CFCECD;
+$app_color: #325253;
+$app_border: 15px solid #74C0C2;
+$font_color: #D3D3D3;
+$button_bckg: #2C494A;
+$btn_hover_color: #DFE1E1;
+$cell_size: 18px;
+
 body{
-  background-color: $body_color;
+  background: linear-gradient(to left, #CFCECD,#677C82);
   .App{
     user-select: none;
     background-color: $app_color;
     text-align: center;
-    margin: 5% auto;
+    margin: 1% auto;
     width: 660px;
+    height: 100%;
     border: $app_border;
     border-radius: 20px 20px 10px 10px;
-    box-shadow: -20px -20px 500px #77A8A1;
+    box-shadow: -10px -10px 300px 5px #398282;
+    color: $font_color;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    padding: 1%;
     h1{
-      color: $font_color;
-      text-shadow: 2px 2px 3px #9B6767;
-      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-shadow: 2px 2px 3px $body_color;
       font-size: 3em;
     }
-    h4{
-      color: $font_color;
+    h5{
+      text-transform: uppercase;
     }
     .btn-toolbar{
       .btn-group{
-        margin: 0 0 10px 115px;
+        margin: 0 0 5px 115px;
         button{
           background-color: $button_bckg;
-          color: white;
+          color: $font_color;
           font-weight: 700;
           outline: none;
           &:hover{
-            background-color: #444F4E;
-            color: #B2CECB;
+            background-color: $btn_hover_color;
+            color: #000000;
           }
         }
       }
     }
     .grid_board{
-      // duhet me kethy height siq ka qen me heret
       position: relative;
-      top: 5px;
-      border: 2px solid transparent;
+      top: -2px;
       margin: auto;
-      // height: 352.5px;
-      height: 20px;
-      width: 50px;
       .cell{
-        height: 12px;
-        width: 12px;
+        height: $cell_size;
+        width: $cell_size;
         display: block;
         float: left;
-        border: 0.1px solid black;
+        border: 1px solid black;
         box-shadow: -2px -2px 2px #858282;
+        transition-delay: 0.001s;
+        &:hover{
+          box-shadow: -1px -1px 1px 1.5px #3B3A3A;
+        }
       }
     }
   } 

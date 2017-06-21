@@ -5,3 +5,9 @@ export const cellClicked = (cell) => {
 		payload: cell
 	}
 }
+export const changeSize = (size) => {
+	return {
+		type: 'CHANGE_SIZE',
+		payload: size
+	}
+}

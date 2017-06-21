@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 
 class Cell extends Component{
 	render(){
-		console.log(this.props);
+		// console.log(this.props);
 		return (
-			<div 
+			<td 
 			className="cell" 
 			style={this.props.alive? 
-				{background: '#9B6767'} : 
-				{background: '#E8DFDF'}}
+				{background: '#B25400'} : 
+				{background: '#BCD2D2'}}
 			onClick={() => this.props.cellClicked(this.props)}>
-			</div>);
+			</td>);
 	}
 }
 
