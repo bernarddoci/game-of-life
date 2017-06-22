@@ -12,31 +12,32 @@ const createGrid = (size) => {
 	}
 	return arr;
 }
-const cellClicked = (state = {
+const gridCells = (state = {
 	running: false,
 	cells: createGrid(3)
 	}, action) => {
-		let id, row, alive, newState, cells;
+		let newState;
 		switch(action.type){
 			case 'CELL_CLICKED':
-				[id, row, alive] = [action.payload.id, action.payload.row, action.payload.alive ? 0 : 1];
 				newState = {...state};
-				newState.cells[row][id] = alive;
+				newState.cells[action.payload.row][action.payload.id] = action.payload.alive ? 0 : 1;
 				return newState;
 			case 'CHANGE_SIZE':
-				cells = createGrid(action.payload);
 				newState = {...state};
-				newState.cells = cells;
+				newState.cells = createGrid(action.payload);
 				return newState;
 			case 'START_GAME':
-				alive = action.payload;
 				newState = {...state};
-				newState.running = alive;
+				newState.running = action.payload;
+				return newState;
+			case 'KILL_CELL':
+				newState = {...state};
+				newState.cells[action.payload[0]][action.payload[1]] = 0;
 				return newState;
 	 		default:
 		}
 	return state;
 }
 
-export default cellClicked;
+export default gridCells;
 

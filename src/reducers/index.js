@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import cellClicked from './reducer-cell';
+import gridCells from './reducer-cell';
 
-const allReducers = combineReducers({cells: cellClicked})
+const allReducers = combineReducers({cells: gridCells})
 
 export default allReducers;

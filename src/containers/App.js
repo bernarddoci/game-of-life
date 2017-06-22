@@ -10,7 +10,7 @@ import '../App.css';
 class App extends Component {
   
   render() {
-    console.log(this.props.grid.running);
+    console.log(this.props.grid.cells);
     return (
       <div className="App">
       	<h1>Game of Life</h1>

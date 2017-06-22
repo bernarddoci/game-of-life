@@ -17,3 +17,9 @@ export const startGame = (start) => {
 		payload: start
 	}
 }
+export const killCell = (row, id) =>{
+	return {
+		type: 'KILL_CELL',
+		payload: [row, id]
+	}
+}
