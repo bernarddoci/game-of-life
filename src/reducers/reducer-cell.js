@@ -14,7 +14,7 @@ const createGrid = (size) => {
 }
 const gridCells = (state = {
 	running: false,
-	cells: createGrid(3)
+	cells: createGrid(22)
 	}, action) => {
 		let newState;
 		switch(action.type){
@@ -25,6 +25,7 @@ const gridCells = (state = {
 			case 'CHANGE_SIZE':
 				newState = {...state};
 				newState.cells = createGrid(action.payload);
+				newState.running = false;
 				return newState;
 			case 'START_GAME':
 				newState = {...state};
@@ -33,6 +34,10 @@ const gridCells = (state = {
 			case 'KILL_CELL':
 				newState = {...state};
 				newState.cells[action.payload[0]][action.payload[1]] = 0;
+				return newState;
+			case 'RESTORE_CELL':
+				newState = {...state};
+				newState.cells[action.payload[0]][action.payload[1]] = 1;
 				return newState;
 	 		default:
 		}

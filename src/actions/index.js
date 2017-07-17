@@ -17,9 +17,15 @@ export const startGame = (start) => {
 		payload: start
 	}
 }
-export const killCell = (row, id) =>{
+export const killCell = (row, id) => {
 	return {
 		type: 'KILL_CELL',
+		payload: [row, id]
+	}
+}
+export const restoreCell = (row, id) => {
+	return {
+		type: 'RESTORE_CELL',
 		payload: [row, id]
 	}
 }

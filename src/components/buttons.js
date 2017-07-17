@@ -8,7 +8,7 @@ const Buttons = (props) => {
 				<Button 
 					bsStyle="default"
 					onClick={()=>{props.startGame(true)}}>
-							Run
+						Run
 				</Button>
 				<Button 
 					bsStyle="default"
@@ -17,7 +17,7 @@ const Buttons = (props) => {
 				</Button>
 				<Button 
 					bsStyle="default"
-					onClick={()=>{props.startGame(false)}}>
+					onClick={()=>{props.changeSize(props.size)}}>
 						Clear
 				</Button>
 				<Button 
