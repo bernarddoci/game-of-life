@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {cellClicked, changeSize, startGame, killCell, restoreCell} from '../actions/index';
 
-import '../App.scss';
+import '../App.css';
 
 class App extends Component {
   constructor(props){
@@ -65,14 +65,14 @@ class App extends Component {
   }
 
 
-  // componentDidUpdate(prevProps, prevState){
-  //   var interval;
-  //   if(this.props.grid.running){
-  //     interval = setInterval(this.startGame, 1000);
-  //   }else if(!this.props.grid.running){
-  //     clearInterval(interval);
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState){
+    var interval;
+    if(this.props.grid.running){
+      interval = setInterval(this.startGame, 1000);
+    }else if(!this.props.grid.running){
+      clearInterval(interval);
+    }
+  }
 
   render() {
     // console.log(this.props.grid);
