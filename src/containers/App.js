@@ -5,11 +5,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {cellClicked, changeSize, startGame, killCell, restoreCell} from '../actions/index';
 
-import '../App.css';
+import '../App.scss';
 
 class App extends Component {
   constructor(props){
     super(props);
+    this.state = { cells: this.props.grid.cells}
     this.extractNeighbors = this.extractNeighbors.bind(this);
     this.collectLiveNeighbors = this.collectLiveNeighbors.bind(this);
     this.startGame = this.startGame.bind(this);
@@ -41,42 +42,46 @@ class App extends Component {
   }
 
   startGame(){
-    console.log("I am called");
-    let counter = 0, neighbors = 0, cells = this.props.grid.cells;
+    let counter = 0, neighbors = 0, cells = this.state.cells;
     for(let row = 0; row < cells.length; row++){
         for(let index = 0; index < cells[0].length; index++){
           // console.log("row: " + row,"index: " + index,"neighbors: " + this.collectLiveNeighbors(cells, row, index));
           neighbors = this.collectLiveNeighbors(cells, row, index);
           if(cells[row][index] === 1 && neighbors < 2){
             cells[row][index] = 0; 
+            this.setState({cells: cells});
           }else if(cells[row][index] === 0 && neighbors === 3){
             cells[row][index] = 1;
+            this.setState({cells: cells});
           }else if(cells[row][index] === 1 && neighbors < 4){
             cells[row][index] = 1;
+            this.setState({cells: cells});
           }else if(cells[row][index] === 1 && neighbors > 3){
             cells[row][index] = 0;
+            this.setState({cells: cells});
           }
         }
       }
   }
 
-  // shouldComponentUpdate(nextProps, nextState){
-  //   if(nextProps.grid.running === true){
-  //     // setInterval(this.startGame, 2000);
+
+  // componentDidUpdate(prevProps, prevState){
+  //   var interval;
+  //   if(this.props.grid.running){
+  //     interval = setInterval(this.startGame, 1000);
+  //   }else if(!this.props.grid.running){
+  //     clearInterval(interval);
   //   }
-  //   return true;
   // }
-  componentDidUpdate(prevProps, prevState){
-    let interval;
-    if(this.props.grid.running){
-      interval = setInterval(this.startGame(), 1000);
-    }else if(!this.props.grid.running){
-      clearInterval(interval);
-    }
-  }
 
   render() {
     // console.log(this.props.grid);
+    let inter;
+    if(this.props.grid.running === true){
+      inter = setInterval(this.startGame, 2000);
+    }else if(this.props.grid.running === false){
+      clearInterval(inter);
+    }
     return (
       <div className="App">
       	<h1>Game of Life</h1>
